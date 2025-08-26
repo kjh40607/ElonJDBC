@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.elon.jdbc.day02.stmt.member.controller.MemberController;
-import com.elon.jdbc.day02.stmt.member.model.dao.MemberDAO;
 import com.elon.jdbc.day02.stmt.member.model.vo.Member;
 
 public class MemberView {
@@ -164,6 +163,7 @@ public class MemberView {
         System.out.println("주소: "+ member.getAddress());
         System.out.println("취미: "+ member.getHobby());
         System.out.println("가입일: "+ member.getEnrollDate());
+        System.out.println("=========================");
 	}
 	// 학생 전체 정보 출력
 	private void printAllMember(List<Member> mList) {
@@ -179,6 +179,7 @@ public class MemberView {
 	         System.out.println("주소: "+ member.getAddress());
 	         System.out.println("취미: "+ member.getHobby());
 	         System.out.println("가입일: "+ member.getEnrollDate());
+	         System.out.println("=========================");
 	      }
 	}
 	// 메시지 출력
@@ -188,7 +189,7 @@ public class MemberView {
 	// 메뉴 출력
 	private int printMenu() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("====== 회원 관리 프로그램 ======");
+		System.out.println("====== 회원 관리 프로그램 (day02, stmt) ======");
 		System.out.println("1. 회원가입");
 		System.out.println("2. 회원 전체 조회");
 		System.out.println("3. 회원 검색(아이디)");
