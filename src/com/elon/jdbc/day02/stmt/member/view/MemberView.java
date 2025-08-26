@@ -61,9 +61,9 @@ public class MemberView {
 				result = mController.updateMember(member);
 				// 결과에 따른 메시지 출력하기
 				if(result > 0) {
-					printMessage("회원 정보가 수정되었습니다.");
+					printMessage("회원 정보가 수정이 완료되었습니다.");
 				}else {
-					printMessage("회원 정보가 수정되지 않았습니다.");
+					printMessage("회원 정보가 수정이 완료되지 않았습니다.");
 				}
 				
 				break;
@@ -71,13 +71,19 @@ public class MemberView {
 			case 5 :
 				// 아이디 입력받기
 				memberId = inputMemberId();
-				// 디비에서 정보 삭제하도록 요청하기
-				result = mController.deleteMember(memberId);
-				// 결과에 따른 메시지 출력하기
-				if(result >0 ) {
-					printMessage("회원 정보 삭제가 완료되었습니다.");
-				} else {
-					printMessage("회원 정보 삭제가 완료되지 않았습니다.");
+				// 입력받은 아이디로 데이터가 있는지 조회해보기
+				member = mController.findOneById(memberId);
+				if(member != null) {					
+					// 디비에서 정보 삭제하도록 요청하기
+					result = mController.deleteMember(memberId);
+					// 결과에 따른 메시지 출력하기
+					if(result >0 ) {
+						printMessage("회원 정보 삭제가 완료되었습니다.");
+					} else {
+						this.printMessage("회원 정보 삭제가 완료되지 않았습니다.");
+					}
+				}else {
+					this.printMessage("해당 정보가 존재하지 않습니다.");
 				}
 				break;
 			
